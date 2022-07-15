@@ -3,17 +3,31 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "初始设置"
 			}
 		}
         ,{
             "path" : "pages/mainPage/mainPage",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "模型微调",
+				"app-plus": {
+					"titleNView": false
+				},
                 "enablePullDownRefresh": false
             }
             
+        }
+        ,{
+            "path" : "pages/editParts/editParts",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "自定义衣物",
+				"app-plus": {
+					"titleNView": false
+				},
+                "enablePullDownRefresh": false
+            }
         }
     ],
 	"globalStyle": {

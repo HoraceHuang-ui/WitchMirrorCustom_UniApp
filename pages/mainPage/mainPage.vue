@@ -1,10 +1,20 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/human-man-scan-190m-01.jpg">
-			<image @click="arm_click" class="circle-button" style="position: absolute; top: 200rpx; left: 230rpx;" src="../../static/circle-button.png"/>
-			<image @click="body_click" class="circle-button" style="position: absolute; top: 240rpx; left: 350rpx;" src="../../static/circle-button.png"/>
-			<image @click="leg_click" class="circle-button" style="position: absolute; top: 550rpx; left: 300rpx;" src="../../static/circle-button.png"/>
-		</image>
+	<view>
+		<view style="height: var(--status-bar-height);"></view>
+		<uni-nav-bar left-icon="back" title="模型微调" style="width: 100%;" shadow @clickLeft="top_bar_back"></uni-nav-bar>
+		
+		<image class="body-image" src="../../static/whole-body.jpg"></image>
+		
+		<view class="uni-title slider-title">身高 / cm</view>
+		<slider value="180" min="120" max="220" show-value />
+		<view class="uni-title slider-title">腿长占身高比例 / %</view>
+		<slider value="50" min="30" max="70" show-value />
+		<view class="uni-title slider-title">臂长 / cm</view>
+		<slider value="85" min="50" max="120" show-value />
+					
+		<navigator url="/pages/editParts/editParts" hover-class="navigator-hover">
+			<button type="default" class="next-button">下一步</button>
+		</navigator>
 	</view>
 </template>
 
@@ -15,18 +25,11 @@
 				
 			}
 		},
-		onLoad() {
-			
-		},
 		methods: {
-			arm_click() {
-				
-			},
-			body_click() {
-				
-			},
-			leg_click() {
-				
+			top_bar_back() {
+				uni.navigateTo({
+					url: "/pages/index/index"
+				})
 			}
 		}
 	}
@@ -37,26 +40,26 @@
 		background-color: #f2f2f2;
 	}
 	
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
+	.body-image {
 		width: 800rpx;
 		height: 800rpx;
 		align-self: center;
 	}
 	
-	.circle-button {
-		width: 50rpx;
-		height: 50rpx;
+	.slider-title {
+		margin-left: 30rpx;
+		margin-top: 20rpx;
 	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
+	
+	.next-button {
+		border-radius: 150rpx;
+		margin-left: 30rpx;
+		margin-right: 30rpx;
+		margin-top: 40rpx;
+		font-weight: 500rpx;
+		font-size: 35rpx;
+		background-color: #4cb6e8;
+		border: none;
+		color: #eff1fe;
 	}
 </style>
